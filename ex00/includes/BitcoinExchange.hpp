@@ -12,7 +12,6 @@
 class BitcoinExchange {
 private:
 	std::map<Date, float> _exchangeRates;
-	std::map<Date, float> _inputData;
 public:
 	BitcoinExchange();
 	~BitcoinExchange();
