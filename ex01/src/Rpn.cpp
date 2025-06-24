@@ -19,11 +19,11 @@ RPN &RPN::operator=(RPN const &other) {
 RPN::~RPN() {
 }
 
-bool isValidChar(char key) {
+bool isNbOp(char key) {
 	return (key >= '0' && key <= '9') || key == '+' || key == '-' || key == '*' || key == '/';
 }
 
-bool isChar(char key) {
+bool isOperator(char key) {
 	return key == '+' || key == '-' || key == '*' || key == '/';
 }
 
@@ -46,11 +46,11 @@ bool RPN::math(std::string const &rpn) {
 			std::cerr << "Error: '" << key << "'. Key must be 1 character no more" << std::endl;
 			return false;
 		}
-		if (!isValidChar(key[0])) {
+		if (!isNbOp(key[0])) {
 			std::cerr  << "Error: '" << key << "'. Key must be 0-9, '+', '-', '*', or '/'." << std::endl;
 			return false;
 		}
-		if (isChar(key[0])) {
+		if (isOperator(key[0])) {
 			if (stack.size() < 2) {
 				std::cerr << "Error: Trying to calculate with a stack size < 2" << std::endl;
 				return false;
