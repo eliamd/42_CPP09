@@ -3,6 +3,9 @@
 //
 
 #include "../includes/Date.hpp"
+#include <iostream>
+#include <string>
+#include <cstdlib>
 
 Date::Date() {}
 
@@ -51,9 +54,9 @@ Date::Date(const std::string &date) {
 
 	size_t pos1 = date.find('-');
 	size_t pos2 = date.find('-', pos1 + 1);
-	_year = std::stoi(date.substr(0, pos1));
-	_month = std::stoi(date.substr(pos1 + 1, pos2 - pos1 - 1));
-	_day = std::stoi(date.substr(pos2 + 1));
+    _year = std::atoi(date.substr(0, pos1).c_str());
+    _month = std::atoi(date.substr(pos1 + 1, pos2 - pos1 - 1).c_str());
+    _day = std::atoi(date.substr(pos2 + 1).c_str());
 
 	if ((_year % 4 == 0 && _year % 100 != 0) || (_year % 400 == 0)) {
 		date_month[1] = 29;
