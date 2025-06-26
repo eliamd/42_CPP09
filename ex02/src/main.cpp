@@ -27,34 +27,34 @@ void printList(const std::list<int>& lst)
 
 int main(int argc, char **argv)
 {
-    // Vérification du nombre d'arguments
-    if (argc < 2)
-    {
-        std::cerr << RED << "Usage: " << argv[0] << " <list of numbers>" << RESET << std::endl;
-        return 1;
-    }
+	// verif nb args
+	if (argc < 2)
+	{
+		std::cerr << "Usage: " << argv[0] << " <list of numbers>" << std::endl;
+		return 1;
+	}
 
-    Pmerge sort;
-    struct timeval start, end;
+	Pmerge sort;
+	struct timeval start, end;
 
-    // Tri avec std::list et mesure du temps
-    gettimeofday(&start, NULL);
-    std::list<int> lt = sort.sortList(argc, argv);
-    gettimeofday(&end, NULL);
-    long elapsed_us = timeDiffMicroseconds(start, end);
+	// tri avec list
+	gettimeofday(&start, NULL);
+	std::list<int> lt = sort.sortList(argc, argv);
+	gettimeofday(&end, NULL);
+	long elapsed_us = timeDiffMicroseconds(start, end);
 
-    std::cout << "Before :   ";
-    printBefore(argc, argv);
-    std::cout << "After :    ";
-    printList(lt);
-    std::cout << "Time to process a range of " << argc - 1 << " elements with std::list : " << elapsed_us << " us" << std::endl;
+	std::cout << "Before :   ";
+	printBefore(argc, argv);
+	std::cout << "After :    ";
+	printList(lt);
+	std::cout << "Time to process a range of " << argc - 1 << " elements with std::list : " << elapsed_us << " us" << std::endl;
 
-    // Tri avec std::vector et mesure du temps
-    gettimeofday(&start, NULL);
-    sort.sortVector(argc, argv);
-    gettimeofday(&end, NULL);
-    elapsed_us = timeDiffMicroseconds(start, end);
-    std::cout << "Time to process a range of " << argc - 1 << " elements with std::vector : " << elapsed_us << " us" << std::endl;
+	// tri avec vector
+	gettimeofday(&start, NULL);
+	sort.sortVector(argc, argv);
+	gettimeofday(&end, NULL);
+	elapsed_us = timeDiffMicroseconds(start, end);
+	std::cout << "Time to process a range of " << argc - 1 << " elements with std::vector : " << elapsed_us << " us" << std::endl;
 
-    return 0;
+	return 0;
 }

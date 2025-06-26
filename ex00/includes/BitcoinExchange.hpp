@@ -15,6 +15,9 @@ private:
 public:
 	BitcoinExchange();
 	~BitcoinExchange();
+	BitcoinExchange(const BitcoinExchange& other);
+	BitcoinExchange & operator=(const BitcoinExchange& other);
+
 	void loadExchangeRates();
 	float getExchangeRate(const Date&);
 	void displayPrices(const char *inputFileName);

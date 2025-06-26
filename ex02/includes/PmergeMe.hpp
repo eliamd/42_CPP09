@@ -5,14 +5,6 @@
 #ifndef PMERGEME_HPP
 #define PMERGEME_HPP
 
-# define RESET		"\033[0m"
-
-# define CYAN		"\033[36m"
-# define GREEN		"\033[32m"
-# define RED		"\033[31m"
-# define YELLOW		"\033[33m"
-# define PURPLE		"\033[35m"
-
 # include <fstream>
 # include <iostream>
 # include <sstream>
